@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/xjyeon/FIT_3179/main/religion-survey-results%20(2).csv"
+  },
+  "title": "Pray in Public",
+  "mark": "circle",
+  "encoding": {
+    "x": {
+      "field": "How often do you: Pray in public using some kind of physical object (rosary, tefillin, etc)",
+      "title": " ",
+      "sort": ["", "Not applicable to my religious beliefs", "Never", "Once a year or less", "Once a month or less", "A few times per month", "A few times per week", "Everyday"]
+    },
+    "y": {
+      "field": "What is your present religion, if any?",
+      "title": ""
+    },
+    "size": {"aggregate": "count", "title": "Response"},
+    "tooltip": [
+      {
+        "field": "What is your present religion, if any?",
+        "type": "nominal",
+        "title": "Religion"
+      },
+      {
+        "aggregate": "count",
+        "field": "What is your present religion, if any?",
+        "type": "nominal",
+        "title": "Number of Responses"
+      },
+      {
+        "field": "How often do you: Pray in public using some kind of physical object (rosary, tefillin, etc)",
+        "type": "nominal",
+        "title": "Frequency of attending religious services"
+      }
+    ]
+  },
+  "config": {}
+}

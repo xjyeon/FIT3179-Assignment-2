@@ -1,0 +1,40 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Attend Religious Services",
+  "data": {
+    "url": "https://raw.githubusercontent.com/xjyeon/FIT_3179/main/religion-survey-results%20(2).csv"
+  },
+  "width": "container",
+  "mark": "circle",
+  "encoding": {
+    "x": {
+      "field": "Do you attend religious services",
+      "title": " ",
+      "sort": ["", "Never", "Less than weekly"]
+    },
+    "y": {
+      "field": "What is your present religion, if any?",
+      "title": "Religion"
+    },
+    "size": {"aggregate": "count", "title": "Response"},
+    "tooltip": [
+      {
+        "field": "What is your present religion, if any?",
+        "type": "nominal",
+        "title": "Religion"
+      },
+      {
+        "aggregate": "count",
+        "field": "What is your present religion, if any?",
+        "type": "nominal",
+        "title": "Number of Responses"
+      },
+      {
+        "field": "Do you attend religious services",
+        "type": "nominal",
+        "title": "Frequency of attending religious services"
+      }
+    ]
+  },
+  "config": {}
+}

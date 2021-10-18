@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/xjyeon/FIT_3179/main/religion-survey-results%20(2).csv"
+  },
+  "title": "Wear Religious Clothing",
+  "mark": "circle",
+  "encoding": {
+    "x": {
+      "field": "How often do you: Wear religious clothing/jewelry (hijab, kippah, wig, kara, turban, cross, etc)",
+      "title": " ",
+      "sort": ["", "Not applicable to my religious beliefs", "Never", "Once a year or less", "Once a month or less", "A few times per month", "A few times per week", "Everyday"]
+    },
+    "y": {
+      "field": "What is your present religion, if any?",
+      "title": ""
+    },
+    "size": {"aggregate": "count", "title": "Response"},
+    "tooltip": [
+      {
+        "field": "What is your present religion, if any?",
+        "type": "nominal",
+        "title": "Religion"
+      },
+      {
+        "aggregate": "count",
+        "field": "What is your present religion, if any?",
+        "type": "nominal",
+        "title": "Number of Responses"
+      },
+      {
+        "field": "How often do you: Wear religious clothing/jewelry (hijab, kippah, wig, kara, turban, cross, etc)",
+        "type": "nominal",
+        "title": "Frequency of attending religious services"
+      }
+    ]
+  },
+  "config": {}
+}

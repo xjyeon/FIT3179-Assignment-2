@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiple Visualisations | An Example</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+
+</head>
+<body>
+
+ <div class="page">
+
+   <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <img src="religion.jpg" alt="Religion Survey" class="vis-container">
+        <h1>Religion Survey</h1>
+        <p2>Using a SurveyMonkey poll, conducted between July 29 and August 1, 2016, <br>we asked 1026 respondents [questions about public displays of religion]</p2>
+      </div>
+    </div>
+  <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-2-5">
+          <div id="vis3" class="vis-container"></div>
+        </div>
+        <div class="pure-u-3-5">
+          <div class="description description-right">
+            <h2>We asked 1026 respondents...</h2>
+            <p>Between July 29 and August 1, 2016, 2016 users from the United States responded to the SurveyMonkey poll regarding religion.</p>
+            <p>The map on the left shows the distribution of these respondents by US divisions. From the map, we can see that most of these respondents came from South Atlantic (196 respondents) and East North Central (180 respondents). This information would help us get an understanding of the geographic location of our respondents and whether there are any interesting trends later on.</p>
+          </div>
+        </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-2-5">
+        <div class="description description-left">
+          <h2>Religion distribution of respondents</h2>
+          <p>In the poll, respondents where asked if they associate themselves with any religion as well as the division they're from. The result is presented in heatmaps and sorted by both US divisions and US regions. From the heatmaps we can tell the number of respondents in each intersection.</p>
+        </div>
+      </div>
+        <div class="pure-u-1-3">
+          <div id="vis1"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-4">
+          <div id="vis4"  class="vis-container"></div>
+        </div>
+      
+    </div>
+    <!-- end pure grid group -->
+
+     <!-- pure grid group -->
+     <div class="pure-g">
+      <div class="pure-u-1">
+        <div id="vis7"  class="vis-container"></div>
+      </div>
+      <div class="pure-u-2-3">
+        <div class="description description-left">
+          <h2>Geographical distribution of religion</h2>
+          <p>From the results, we have put together geographical maps showing the distribution of three of the highest responded religions - Protestants (22.7%), Roman Catholics (18.6%), and ones who didn't affiliate themselves with any of these religions (23.4%). </p>
+          <p>Taken on the fact that there may be more respondents that are from particular geographical areas than others, data is normalised by the total number of participants in each US division to show a more accurate representation. However, since these are only showing the results from 1,026 respondents, it is not an accurate representation of the whole population of the United States.</p>
+        </div>
+      </div>
+
+      
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-5">
+        <div id="vis2"  class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-5">
+        <div id="vis5"  class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-5">
+        <div id="vis6"  class="vis-container"></div>
+      </div>
+      <div class="pure-u-2-5">
+        <div class="description description-right">
+          <h2>How often do you...</h2>
+          <p>In the poll, respondents were also asked questions regarding their religious practices. Some of these questions include how often they attend religious services, how often they pray in public, and how often they were religious clothing, where results are shown through the scatterplots on the left.</p>
+          <p>Things to note is that the first column responses are left blank because they do not carry out such practices as it may not be applicable to them.</p>
+        </div>
+      </div>
+
+    
+    </div>
+    <!-- end pure grid group -->
+  
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation is created by <a href="https://github.com/xjyeon" target="_blank">Jingyi Xu 30615046</a>. The datasource is <a href="https://www.kaggle.com/mysarahmadbhat/religion-survey"" target="_blank">Religion Survey by Mysar Ahmad Bhat</href>.</p>
+      </div>
+    </div>
+  
+
+  </div> <!-- end page -->
+   
+<script type="text/javascript">
+  var specVis1 = "./divisionheatmap.vl.json";
+  var specVis2= "./services.vl.json";
+  var specVis3= "./totalrespondents.vl.json";
+  var specVis4= "./regionheatmap.vl.json";
+  var specVis5= "./prayinpublic.vl.json";
+  var specVis6= "./religiousclothing.vl.json";
+  var specVis7= "./mapmultiples.vl.json";
+
+  vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+   vegaEmbed('#vis2', specVis2, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis5', specVis5, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis6', specVis6, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis7', specVis7, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
+</body>
+</html>

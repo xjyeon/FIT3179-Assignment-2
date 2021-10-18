@@ -1,0 +1,76 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Distribution of total respondents by US divisions",
+  "repeat": ["Total Participants"],
+  "columns": 1,
+  "spec": {
+    "projection": {"type": "albersUsa"},
+    "width": "container",
+    "height": 300,
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/xjyeon/FIT_3179/main/cb_2018_us_division_20m.json",
+          "format": {"type": "topojson", "feature": "cb_2018_us_division_20m"}
+        },
+        "mark": {
+          "type": "geoshape",
+          "fill": "#ddd",
+          "stroke": "white",
+          "strokeWidth": 1
+        }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/xjyeon/FIT_3179/main/top3%20(2).csv"
+        },
+        "transform": [
+          {
+            "lookup": "Division",
+            "from": {
+              "data": {
+                "url": "https://raw.githubusercontent.com/xjyeon/FIT_3179/main/cb_2018_us_division_20m.json",
+                "format": {
+                  "type": "topojson",
+                  "feature": "cb_2018_us_division_20m"
+                }
+              },
+              "key": "properties.NAME"
+            },
+            "as": "geo"
+          }
+        ],
+        "mark": {"type": "geoshape", "stroke": "#fff", "strokeWidth": 0.5},
+        "encoding": {
+          "shape": {"field": "geo", "type": "geojson"},
+          "color": {
+            "field": {"repeat": "repeat"},
+            "type": "quantitative",
+            "scale": {"domain": [0, 200], "scheme": "Blues"},
+            "legend": {"format": ".2s", "title": "Respondents"}
+          },
+          "tooltip": [
+            {"field": "Division", "type": "nominal", "title": "Division"},
+            {
+              "field": {"repeat": "repeat"},
+              "type": "quantitative",
+              "title": "Respondents",
+              "format": ","
+            }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "bottom",
+          "x": "width",
+          "y": 0
+        },
+        "encoding": {"text": {"field": {"repeat": "repeat"}}}
+      }
+    ]
+  },
+  "config": {}
+}
